@@ -1,0 +1,30 @@
+db.create_all()
+test_user=User(fname='John',lname='last',email='test@test.test', password='test')
+db.session.add(test_user)
+db.session.commit()
+
+>>> user = User.query.first()
+>>> user
+
+new_photo = Photo(img='img',description='great',location='lock',gps_url='abc',popular_url='abc')
+ db.session.add(new_photo)
+ db.session.commit()
+
+photos = Photo.query.all()
+photos
+
+rat=Rating(rating=3,user=test_user,photo=photos[0])
+db.session.add(rat)
+db.session.commit()
+ratings=Rating.query.all()
+print(ratings[0].rating)
+print(ratings[0].photo)
+
+fav_photo=Favorite_Photo(photo=photos[0],user=test_user)
+db.session.add(fav_photo)
+db.session.commit()
+
+favs=Favorite_Photo.query.all()
+print(favs[0].user)
+print(favs[0].photo)
+

@@ -1,4 +1,4 @@
-"""Server for Durga's Photos app."""
+"""Server for movie ratings app."""
 
 from flask import Flask
 
