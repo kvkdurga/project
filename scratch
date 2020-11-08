@@ -28,3 +28,16 @@ favs=Favorite_Photo.query.all()
 print(favs[0].user)
 print(favs[0].photo)
 
+
+crud.get_user_by_lname("Doe")
+crud.get_users_by_lname("Doe")
+
+
+To restart database use
+
+sudo service postgresql restart
+
+"img": "./static/images/img1.jpg",
+        "location": "Halebeedu, Karnataka, India",
+        "date_taken":"2018-08-02",
+        "description":"Halebidu is a small town located in Hassan District in Karnataka state. It is a hindu temple for god Shiva. It's famous for its architecture with intricate detials.It's architecture was destructed during mughals invasion during 12th century."

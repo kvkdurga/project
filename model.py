@@ -26,9 +26,9 @@ class Photo(db.Model):
     __tablename__ = 'photos'
 
     photo_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    img = db.Column(db.String) 
-    description = db.Column(db.Text)
+    img_path = db.Column(db.String,nullable=False) 
     location = db.Column(db.String, nullable=False)
+    description = db.Column(db.Text)
     gps_url = db.Column(db.String)
     popular_url = db.Column(db.String)
 
