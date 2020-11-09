@@ -32,7 +32,8 @@ print(favs[0].photo)
 crud.get_user_by_lname("Doe")
 crud.get_users_by_lname("Doe")
 
-
+photo1=crud.get_photo_by_id(1)
+user1=crud.get_user_by_id(1)
 To restart database use
 
 sudo service postgresql restart

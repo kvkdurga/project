@@ -72,10 +72,10 @@ def get_photo_by_location(location):
 
     return Photo.query.filter(Photo.location==location).first()
 
-def create_favorite_photo(user_id,photo_id):
+def create_favorite_photo(user,photo):
     """ Return a favorite photo of an user"""
 
-    favorite_photo = Favorite_Photo(user_id=user_id,photo_id=photo_id)
+    favorite_photo = Favorite_Photo(user=user,photo=photo)
     
     db.session.add(favorite_photo)
     db.session.commit()
@@ -85,31 +85,59 @@ def create_favorite_photo(user_id,photo_id):
 def get_favorite_photo_of_user_by_user_id(user_id):
     """get a favorite photo of an user"""
 
-    fav_photo_rec = Favorite_Photo.query.filter(user_id==user_id).first()
+    fav_photo_rec = Favorite_Photo.query.filter(Favorite_Photo.user_id==user_id).first()
     photo_id = fav_photo_rec.photo_id
     return get_photo_by_id(photo_id)
     
 def get_favorite_photos_of_user_by_user_id(user_id):
     """get all favorite_photos of an user"""
 
-    fav_photo_recs = Favorite_Photo.query.filter(user_id==user_id).all()
+    fav_photo_recs = Favorite_Photo.query.filter_by(user_id=user_id).all()
     photo_recs = [] 
+    #print("length of favorite photo records", len(fav_photo_recs))
     for id in range(len(fav_photo_recs)):
         photo_id = fav_photo_recs[id].photo_id
         photo_rec = get_photo_by_id(photo_id)
         photo_recs.append(photo_rec)
     return photo_recs
 
-# def create_rating(rating,date_liked,comments, photo,user):
-#     """create and return comments and favorite rating of a photo by an user"""
+def get_users_of_a_favorite_photo(photo_id):
+    """get all users of a favorite photo"""
 
-#     rate_and_comment = Rating(rating=rating,date_liked=date_liked,comments=comments,photo=photo,user=user)
+    fav_recs = Favorite_Photo.query.filter(Favorite_Photo.photo_id==photo_id).all()
+    #print("lengthFavREcs",len(fav_recs))
+    user_recs = [] 
+    for id in range(len(fav_recs)):
+        user_id = fav_recs[id].user_id
+        user_rec = get_user_by_id(user_id)
+        user_recs.append(user_rec)
+    return user_recs
 
-#     db.session.add(rate_and_comment)
-#     db.session.commit()
 
-#     return rate_and_comment
+def create_rating(rating, comments, photo, user):
+    """create and return comments and favorite rating of a photo by an user"""
 
+    rate_and_comment = Rating(rating=rating, comments=comments, photo=photo, user=user)
+
+    db.session.add(rate_and_comment)
+    db.session.commit()
+
+    return rate_and_comment
+
+def get_all_users_who_rated_photo(photo_id):
+    """get all users who have rated a particular photo."""
+
+    rating_recs = Rating.query.filter_by(photo_id=photo_id).all()
+    user_recs = [] 
+    #print(len(rating_recs))
+    for id in range(len(rating_recs)):
+        user_id = rating_recs[id].user_id
+        #photoId = rating_recs[id].photo_id
+        #print("user id is ",user_id)
+        #print("photo id is",photoId)
+        user_rec = get_user_by_id(user_id)
+        user_recs.append(user_rec)
+    return user_recs
 
 if __name__ == '__main__':
     from server import app

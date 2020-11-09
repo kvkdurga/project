@@ -13,7 +13,7 @@ model.db.create_all()
 #creation of users
 
 crud.create_user("John","Doe","johnDoe@gmail.com","johnDoe")
-crud.create_user("Jane","Doe","janeDoe@gmail.com","janeDoe")
+crud.create_user("Jane","Derick","janeDerick@gmail.com","janeDoe")
 crud.create_user("Kamala","Harris","kamalaHarris@gmail.com","kamalaHarris")
 crud.create_user("Sourav","Patel","souravPatel@gmail.com","souravPatel")
 crud.create_user("Arnab","Dey","arnabDey@gmail.com","arnabDey")
@@ -30,7 +30,7 @@ with open('./images.json') as f:
     photos_data = json.loads(f.read())
     #print("success")
 for photo in photos_data:
-    
+
     img_path = photo['img_path']
     location = photo['location']
     description = photo['description']
@@ -40,15 +40,27 @@ for photo in photos_data:
     crud.create_photo(img_path, location, description, gps_url, popular_url)
     
     
+#getting Two users by user_id
+
+user1=crud.get_user_by_id(1)
+user2=crud.get_user_by_id(2)
+
+#getting Two Photos by photo_id
+
+photo1=crud.get_photo_by_id(1)
+photo2=crud.get_photo_by_id(2)
+
+# Creating Two ratings by the same user on two different photos
+rating1=crud.create_rating(1,"This is an excellent Photo",photo1,user1)
+rating2=crud.create_rating(2,"This is a good Photo",photo2,user1)
+
+# Creating  ratings by the another user2 on a common photo ; photo 1
+rating3=crud.create_rating(3,"This is an average Photo",photo1,user2)
+
+# Creating two favorite Photos by user1 and one common by user2
+favphoto1=crud.create_favorite_photo(user1,photo1)
+favphoto2=crud.create_favorite_photo(user1,photo2)
+favphoto3=crud.create_favorite_photo(user2,photo1)
 
 
-
-# crud.create_photo("./data/images/img1.jpg","Halebidu, Karnataka, India","Halebidu is a small town located in Hassan District in Karnataka state. It is a hindu temple for god Shiva. It's famous for its architecture with intricate detials.",  "https://en.wikipedia.org/wiki/Halebidu","https://en.wikipedia.org/wiki/Halebidu")
-
-
-# crud.create_photo("./static/images/img2.jpg",
-#         "Maui", "View of mountains from black sand beach on Hana Hwy in Maui, Hawaii.Black sand beaches are so beautiful with cyrstal clean waters and black pebbles on the beach.","https://www.hawaii-guide.com/maui/beaches/black-sand-beach-maui","https://www.tourmaui.com/black-sand-beach/")
-
-# crud.create_favorite_photo(1,1)
-# crud.create_favorite_photo(1,2)
 
