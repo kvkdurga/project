@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ photo.location }} - Details{% endblock %}
+
+{% block body %}
+<h1>{{ photo.location }}</h1>
+
+<p>
+  {{ photo.description }}
+</p>
+
+<img src="/static/{{ photo.img_path }}">
+{% endblock %}

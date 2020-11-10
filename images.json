@@ -1,27 +1,27 @@
 [
     { 
-        "img_path": "./static/images/img1.jpg",
+        "img_path": "./data/images/img1.jpg",
         "description":"Halebidu is a small town located in Hassan District in Karnataka state. It is a hindu temple for god Shiva. It's famous for its architecture with intricate detials.",
         "location": "Halebidu,Karnataka, India",
         "gps_url": "https://en.wikipedia.org/wiki/Halebidu",
         "popular_url": "https://en.wikipedia.org/wiki/Halebidu"
     }, 
     {
-        "img_path":"./static/images/img2.jpg",
+        "img_path":"./data/images/img2.jpg",
         "description":"View of mountains from black sand beach on Hana Hwy in Maui, Hawaii.Black sand beaches are so beautiful with cyrstal clean waters and black pebbles on the beach.",
         "location": "Maui, Hawaii,USA",
         "gps_url": "https://www.tourmaui.com/road-to-hana/",
         "popular_url": "https://www.tourmaui.com/black-sand-beach/"
     },
     {
-        "img_path":"./static/images/img3.jpg",
+        "img_path":"./data/images/img3.jpg",
         "description": "Walkpath with snow in April,2020 in Plymouth in our neighborhood in Plymouth.",
         "location": "Plymouth, MN, USA",
         "gps_url": "https://www.plymouthmn.gov/Home/Components/FacilityDirectory/FacilityDirectory/102/6",
         "popular_url":"https://www.plymouthmn.gov/Home/Components/FacilityDirectory/FacilityDirectory/102/6"
     },
     {
-        "img_path": "./static/images/img3.jpg",
+        "img_path": "./data/images/img4.jpg",
         "description": " Black sand beach.",
         "location": "Waianapanapa State Park, Maui,USA",
         "gps_url": "https://www.hawaii-guide.com/maui/beaches/black-sand-beach-maui",
@@ -29,29 +29,29 @@
 
     },
     {
-        "img_path": "./static/images/img5.jpg",
+        "img_path": "./data/images/img5.jpg",
         "description": "A beautiful fall in Afton state park in 2018. The trial is alonside of scenic St.Croix River. ",
         "location": "Hastings, MN,USA",
         "gps_url":"https://www.dnr.state.mn.us/state_parks/park.html?id=spk00100#homepage",
         "popular_url": "https://en.wikipedia.org/wiki/Afton_State_Park"
     },
     {
-        "img_path": "./static/images/img6.jpg",
+        "img_path": "./data/images/img6.jpg",
         "description": "Halebidu is a small town located in Hassan District in Karnataka state. It is a hindu temple for god Shiva. It's famous for its architecture with intricate detials.",
         "location": "Halebidu, Karnataka, India",
         "gps_url": "https://en.wikipedia.org/wiki/Halebidu",
         "popular_url": "https://en.wikipedia.org/wiki/Halebidu"
     },
     {
-        "img_path": "./static/images/img7.jpg",
-        "description": "Niagara falls, huge and beautiful waterfall that borders US and Canada near Newyork and Ontario, in 2011",
+        "img_path": "./data/images/img7.jpg",
+        "description": "Niagara falls, huge and beautiful waterfall that borders US and Canada near Newyork and Ontario, picture taken in 2011",
         "location": "Niagara Falls, NY, USA",
         "gps_url": "https://en.wikipedia.org/wiki/Niagara_Falls",
         "popular_url": "https://www.niagarafallsstatepark.com/"
 
     },
     {
-        "img_path": "./static/images/img8.jpg",
+        "img_path": "./data/images/img8.jpg",
         "description": "A beautiful Sunset in SantaCruz beach, California in 2014",
         "location": "Natural bridges State Beach, Santacruz, California, USA",
         "gps_url": "https://www.parks.ca.gov/?page_id=541",
@@ -59,7 +59,7 @@
 
     },
     {
-        "img_path": "./static/images/img9.jpg",
+        "img_path": "./data/images/img9.jpg",
         "description": "Hawa Mahal in Hindi means a palace of breeze.It is located in Jaipur,Rajasthan which is called as pink city",
         "location":"Jaipur, Rajasthan, India",
         "gps_url" : "https://en.wikipedia.org/wiki/Hawa_Mahal",
@@ -67,14 +67,14 @@
 
     },
     {
-        "img_path": "./static/images/img11.jpg",
+        "img_path": "./data/images/img11.jpg",
         "description": "Nobbys Lighthouse is located on Nobbys head and is an active recreational point for visitors.",
         "location": "New Castle, Australia",
         "gps_url": "https://www.visitnsw.com/destinations/north-coast/newcastle-area/newcastle/attractions/nobbys-lighthouse",
         "popular_url": "https://en.wikipedia.org/wiki/Nobbys_Head_Light"
     },
     {
-        "img_path": "./static/images/img13.jpg",
+        "img_path": "./data/images/img13.jpg",
         "description": "Rajasthan is known for its beautiful forts.Jaigarh Fort is one of them located in Jaipur city and it is called the victory fort",
         "location": "Jaipur, Rajasthan, India",
         "gps_url" :"https://www.tourmyindia.com/states/rajasthan/jaigarh-fort.html",
@@ -82,7 +82,7 @@
     },
 
     {
-        "img_path": "./static/images/img27.jpg",
+        "img_path": "./data/images/img27.jpg",
         "description": "Craters in Haleakala National Park.It's known for dormant Haleakala volcano.",
         "location": "Maui, Hawaii,USA",
         "gps_url": "https://www.nps.gov/hale/index.htm",

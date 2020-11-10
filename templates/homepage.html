@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Photo Viewing  Home{% endblock %}
+
+{% block body %}
+  <h1>Hello! Welcome to Durga's homepage</h1>
+
+  <!-- <h2>Navigation</h2>
+  <ul>
+    <li><a href="./static/data/images/">View all photos</a></li>
+    <li><a href="/users">View all users</a></li>
+  </ul> -->
+  <h2> If you have an account with me, Please login</h2>
+  <form action="/users" method="POST">
+    <p>
+      Email <input type="text" name="email">
+    </p>
+
+    <p>
+      Password <input type="password" name="password">
+    </p>
+
+    <p>
+      <input type="submit" value="submit">
+    </p> </form>
+
+  <h2>If you don't have an account, Please create one. Thanks!</h2>
+  <form action="/users" method="POST">
+    <p>
+      First Name <input type="text" name="fname">
+    </p>
+    <p>
+      Last Name <input type="text" name="lname">
+    </p>
+    <p>
+      Email <input type="text" name="email">
+    </p>
+
+    <p>
+      Password <input type="password" name="password">
+    </p>
+
+    <p>
+      <input type="submit" value="submit">
+    </p>
+  </form>
+{% endblock %}
