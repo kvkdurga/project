@@ -3,11 +3,42 @@
 {% block title %}{{ photo.location }} - Details{% endblock %}
 
 {% block body %}
+
 <h1>{{ photo.location }}</h1>
 
+<h2>Navigation</h2>
+  <ul>
+    <li><a href="/all_photos">View all of my photos</a></li>
+    
+    
+  </ul>
 <p>
   {{ photo.description }}
 </p>
 
 <img src="/static/{{ photo.img_path }}">
+
+<form action="/create_rating" method="POST">
+  <div>
+    <label for="rating">Please rate this picture:</label>
+      <select name= "rating">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>None</option>
+      </select>
+  </div>
+  <div>
+    <label for="comments">Please comment on this picture:</label>
+    <input type="text" name="comments" size="50">
+  </div>
+</form>
+  <button class= "button" src="/static/css/style.css" Favorite photo!></button>
+
+
+
+
+
 {% endblock %}
