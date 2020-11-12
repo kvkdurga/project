@@ -5,9 +5,9 @@
 .button {
     border: none;
     color: white;
-    padding: 20px 35 px;
+    padding: 50px 45 px;
     text-align: center;
     display: inline-block;
-    font-size: 18;
+    font-size: 20;
     background-color: green
 }

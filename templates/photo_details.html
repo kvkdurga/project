@@ -20,22 +20,33 @@
 
 <form action="/create_rating" method="POST">
   <div>
-    <label for="rating">Please rate this picture:</label>
-      <select name= "rating">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>None</option>
-      </select>
+    <br>
+      <label for="rating">Please rate this picture:</label>
+        <select name= "rating">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>4</option>
+          <option>None</option>
+        </select>
   </div>
   <div>
+    <br>
     <label for="comments">Please comment on this picture:</label>
     <input type="text" name="comments" size="50">
   </div>
+  
 </form>
-  <button class= "button" src="/static/css/style.css" Favorite photo!></button>
+<br>
+<form action ="/create_fav_photo" method = "POST">
+  <div>
+    <button class= "button">Favorite photo</button>
+  </div>
+
+</form>
+
+  
 
 
 

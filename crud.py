@@ -82,12 +82,12 @@ def create_favorite_photo(user,photo):
 
     return favorite_photo
 
-def get_favorite_photo_of_user_by_user_id(user_id):
+def get_fav_photo_rec_by_user_and_photo(user_id, photo_id):
     """get a favorite photo of an user"""
-
-    fav_photo_rec = Favorite_Photo.query.filter(Favorite_Photo.user_id==user_id).first()
-    photo_id = fav_photo_rec.photo_id
-    return get_photo_by_id(photo_id)
+    
+    fav_photo_rec = Favorite_Photo.query.filter(Favorite_Photo.user_id==user_id, Favorite_Photo.photo_id==photo_id)
+    
+    return fav_photo_rec
     
 def get_favorite_photos_of_user_by_user_id(user_id):
     """get all favorite_photos of an user"""
@@ -123,6 +123,24 @@ def create_rating(rating, comments, photo, user):
     db.session.commit()
 
     return rate_and_comment
+
+def get_all_photos_rated_by_user(user_id):
+    """get all photos that were rated by an user."""
+
+    rating_recs = Rating.query.filter_by(user_id=user_id).all()
+    photo_recs = [] 
+    for id in range(len(rating_recs)):
+        photo_id = rating_recs[id].photo_id
+        photo_rec = get_photo_by_id(photo_id)
+        photo_recs.append(photo_rec)
+    return photo_recs
+
+def get_all_rating_recs_by_user(user_id):
+    """get all photos that were rated by an user."""
+
+    rating_recs = Rating.query.filter_by(user_id=user_id).all()
+    
+    return rating_recs
 
 def get_all_users_who_rated_photo(photo_id):
     """get all users who have rated a particular photo."""

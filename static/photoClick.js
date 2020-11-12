@@ -6,9 +6,9 @@
 //     })
 //   })
 
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })
+//   $('#myModal').on('shown.bs.modal', function () {
+//     $('#myInput').trigger('focus')
+//   })
 
 
 // function changeColorToRed() {
@@ -26,3 +26,6 @@
 // $('#red-changer').click(changeColorToRed)
 // $('#blue-change').click(changeColorToBlue)
 
+function fav_click() {
+    
+}

@@ -4,9 +4,39 @@
 
 {% block body %}
 <h1>  Hello {{ user.fname }} {{user.lname}}</h1>
+<br>
+<h2> Here are your favorite photos</h2>
+<ul>
+    {%for photo in user_fav_photos %}
+        <li>
+            <a href="/all_photos/{{ photo.photo_id }}">
+                <img class="smallImage" src="/static/{{photo.img_path}}">
+            </a>
+        </li>
+    {% endfor %}
+    
+</ul>
+
+<h2> Here are your rating details for photos</h2>
+<ul>
+    {%for rating_rec in user_rated_recs %}
+        <li>
+            <a href="/all_photos/{{ rating_rec.photo_id }}">
+                <img class="smallImage" src="/static/{{rating_rec.photo.img_path}}">
+            </a>
+            <p>comment: {{rating_rec.comments}}</p>
+            <p>rating: {{rating_rec.rating}}</p>
+
+        </li>
+    {% endfor %}
+    
+</ul>
 
 <h2>Navigation</h2>
-  <ul>
+
+<ul>
     <li><a href="/all_photos">View all of my photos</a></li>
-  </ul>
+</ul>
+
+  
 {% endblock %}
