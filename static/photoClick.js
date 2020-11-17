@@ -1,31 +1,28 @@
 'use strict';
 
-// $(function () {
-//     $('.example-popover').popover({
-//       container: 'body'
-//     })
-//   })
+$(document).ready(loadImgData);
 
-//   $('#myModal').on('shown.bs.modal', function () {
-//     $('#myInput').trigger('focus')
-//   })
+function loadImgData() {
+    $.getJSON('/get_img_data',processImgData)
 
-
-// function changeColorToRed() {
-//     //alert('changed to red')
-//     // console.log('I am Red')
-//     $('.changes-colors').css('color','red')
-// }  
-
-// function changeColorToBlue() {
-//     //alert('changed to Blue')
-//     //console.log('I am Blue')
-//     $('.changes-colors').css('color','blue')
-// }
-
-// $('#red-changer').click(changeColorToRed)
-// $('#blue-change').click(changeColorToBlue)
-
-function fav_click() {
-    
 }
+
+function processImgData(imgData) {
+    console.log(imgData);
+    var imgPath = "/static/"+ imgData.img_path
+    //$('#test_div').append(imgPath)
+    $('#img_details_div').append('<img id="img_id" src=""/>')
+    $('#img_id').attr('src',imgPath)
+    
+    $('#img_details_div').append(imgData.location)
+
+}
+
+
+
+// $('#users_who_have_rated_photo').on('click', function (evt) {
+//     $('#count_who_rated_photo').load('/countOfUsersWhoRatedPhoto');
+    
+//  });
+
+

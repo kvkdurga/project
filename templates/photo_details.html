@@ -27,8 +27,7 @@
           <option>2</option>
           <option>3</option>
           <option>4</option>
-          <option>4</option>
-          <option>None</option>
+          <option>5</option>
         </select>
   </div>
   <div>
@@ -36,6 +35,9 @@
     <label for="comments">Please comment on this picture:</label>
     <input type="text" name="comments" size="50">
   </div>
+  <p>
+    <input type="submit" value="submit">
+  </p> 
   
 </form>
 <br>
@@ -43,13 +45,23 @@
   <div>
     <button class= "button">Favorite photo</button>
   </div>
-
 </form>
-
-  
-
-
-
+<br>
+<form action ="/stats_on_photo" method = "POST">
+  <div>
+    <button class ="button">Get Statastics of Photo</button>
+  </div>
+</form>
+<br>
+<br>
+<form>
+  <p>For more details, click on these links</p>
+  <br>
+  <a href="{{photo.gps_url}}" target="_blank">{{photo.location}} - Popular link</a>
+  <br>
+  <br>
+  <a href="{{photo.popular_url}}" target="_blank">{{photo.location}} - Popular link</a>
+</form>
 
 
 {% endblock %}

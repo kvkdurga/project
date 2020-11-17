@@ -99,6 +99,7 @@ def get_favorite_photos_of_user_by_user_id(user_id):
         photo_id = fav_photo_recs[id].photo_id
         photo_rec = get_photo_by_id(photo_id)
         photo_recs.append(photo_rec)
+        
     return photo_recs
 
 def get_users_of_a_favorite_photo(photo_id):
@@ -107,10 +108,12 @@ def get_users_of_a_favorite_photo(photo_id):
     fav_recs = Favorite_Photo.query.filter(Favorite_Photo.photo_id==photo_id).all()
     #print("lengthFavREcs",len(fav_recs))
     user_recs = [] 
+
     for id in range(len(fav_recs)):
         user_id = fav_recs[id].user_id
         user_rec = get_user_by_id(user_id)
         user_recs.append(user_rec)
+
     return user_recs
 
 
@@ -146,6 +149,7 @@ def get_all_users_who_rated_photo(photo_id):
     """get all users who have rated a particular photo."""
 
     rating_recs = Rating.query.filter_by(photo_id=photo_id).all()
+    print("RATING RECORDS = ", rating_recs)
     user_recs = [] 
     #print(len(rating_recs))
     for id in range(len(rating_recs)):

@@ -1,6 +1,6 @@
 """Server for movie ratings app."""
 from flask import (Flask, render_template, request, flash, session,
-                   redirect)
+                   redirect, jsonify, url_for)
 from model import connect_to_db
 import crud
 from jinja2 import StrictUndefined
@@ -57,21 +57,22 @@ def view_user_details(user_id):
     return render_template('display_user_details.html',user=user, user_fav_photos=user_fav_photos, user_rated_recs=user_rated_recs)
 
 
-@app.route('/fav_photo')
-def fav_photo(user_id):
-    """display favorite photo of an user"""
+# @app.route('/fav_photo')
+# def fav_photo(user_id):
+#     """display favorite photo of an user"""
 
-    fav_photo = crud.get_favorite_photo_of_user_by_user_id(user_id)
-    return render_template('fav_photo_of_user.html', fav_photo=fav_photo)
+#     fav_photo = crud.get_favorite_photo_of_user_by_user_id(user_id)
+#     return render_template('fav_photo_of_user.html', fav_photo=fav_photo)
 
 @app.route('/create_fav_photo', methods=['POST'])
 def create_fav_photo():
     
     user=crud.get_user_by_id(session['user_id'])
     photo=crud.get_photo_by_id(session['photo_id'])
+    photo_id = session['photo_id']
     # test_fav_rec = crud.get_fav_photo_rec_by_user_and_photo(user.user_id,photo.photo_id)
     # print("HERe YOU go: ", test_fav_rec)
-    # if(test_fav_rec.photo_id):
+    # if(test_fav_rec):
     #     flash("This is already your favorite photo")
     #     print("HERE YOU GO")
     #     # print(crud.get_fav_photo_rec_by_user_and_photo(user.user_id,photo.photo_id).photo_id)
@@ -81,20 +82,75 @@ def create_fav_photo():
     #currently no condition given for checking favorite photo was already chosen.So if a user clicks fav photo twice 2 
     #records will be added to fav photos
     # print(rating_rec.user.fname)
-    return redirect('/all_photos')
+    url_str = '/all_photos/' + photo_id
+    return redirect(url_str)
+
+    
 
 @app.route('/create_rating', methods=['POST'])
 def create_rating():
     comments=request.form.get('comments')
     rating=request.form.get('rating')
+    photo_id = session['photo_id']
     # print ("rating",rating)
     # print ("Comments",comments)
     user=crud.get_user_by_id(session['user_id'])
     photo=crud.get_photo_by_id(session['photo_id'])
     rating_rec=crud.create_rating(rating,comments,photo,user)
     # print(rating_rec.user.fname)
-    return redirect('/all_photos')
+    url_str = '/all_photos/' + photo_id
+    return redirect(url_str)
 
+#********************************* AJAX*******************
+@app.route('/stats_on_photo', methods =['POST'])
+def stats_on_photo():
+    """ Get all user for a favorite photo """
+    photo_id = session['photo_id']
+
+    return render_template('/stats_photo.html')
+
+
+@app.route('/countOfUsersWhoRatedPhoto')
+def countOfUsersWhoRatedPhoto():
+    """ Get the count of all users who rated photo """
+
+    photo_id = session['photo_id']
+    user_recs= crud.get_all_users_who_rated_photo(photo_id)
+    count = len(user_recs)
+    user_recs_json = []
+    user_recs_json.append(count)
+
+    if (len != 0):
+        for user_rec in user_recs:
+            fname = user_rec.fname
+            lname = user_rec.lname
+            user_rec_json = {
+
+                 "name" : fname + ' '+ lname
+                
+            }
+            user_recs_json.append(user_rec_json)
+
+    return jsonify(user_recs_json)
+
+@app.route('/get_img_data')
+def get_img_data():
+
+    photo_id = session['photo_id']
+    photo_rec = crud.get_photo_by_id(photo_id)
+    img_path = photo_rec.img_path
+    location = photo_rec.location
+
+    json_data = {
+        'photo_id': photo_id,
+        'img_path': img_path,
+        'location': location
+
+    }
+    return jsonify(json_data)
+
+
+#*********************************************************
 
 @app.route('/register_user', methods=['POST'])
 def register_user():
