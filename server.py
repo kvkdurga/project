@@ -118,7 +118,7 @@ def countOfUsersWhoRatedPhoto():
     user_recs= crud.get_all_users_who_rated_photo(photo_id)
     count = len(user_recs)
     user_recs_json = []
-    user_recs_json.append(count)
+    #user_recs_json.append(count)
 
     if (len != 0):
         for user_rec in user_recs:
@@ -132,6 +132,7 @@ def countOfUsersWhoRatedPhoto():
             user_recs_json.append(user_rec_json)
 
     return jsonify(user_recs_json)
+    #return "<h1>hello world</h1>"
 
 @app.route('/get_img_data')
 def get_img_data():
@@ -140,11 +141,15 @@ def get_img_data():
     photo_rec = crud.get_photo_by_id(photo_id)
     img_path = photo_rec.img_path
     location = photo_rec.location
+    gps_url = photo_rec.gps_url
+    popular_url = photo_rec.popular_url
 
     json_data = {
         'photo_id': photo_id,
         'img_path': img_path,
-        'location': location
+        'location': location,
+        'gps_url': gps_url,
+        'popular_url':popular_url
 
     }
     return jsonify(json_data)
