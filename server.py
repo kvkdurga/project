@@ -70,19 +70,18 @@ def create_fav_photo():
     user=crud.get_user_by_id(session['user_id'])
     photo=crud.get_photo_by_id(session['photo_id'])
     photo_id = session['photo_id']
-    # test_fav_rec = crud.get_fav_photo_rec_by_user_and_photo(user.user_id,photo.photo_id)
-    # print("HERe YOU go: ", test_fav_rec)
-    # if(test_fav_rec):
-    #     flash("This is already your favorite photo")
-    #     print("HERE YOU GO")
-    #     # print(crud.get_fav_photo_rec_by_user_and_photo(user.user_id,photo.photo_id).photo_id)
-    # else:
-    fav_rec=crud.create_favorite_photo(user, photo)
-
-    #currently no condition given for checking favorite photo was already chosen.So if a user clicks fav photo twice 2 
-    #records will be added to fav photos
-    # print(rating_rec.user.fname)
     url_str = '/all_photos/' + photo_id
+    # test_fav_rec = crud.get_fav_photo_rec_by_user_and_photo(user.user_id, photo.photo_id)
+    test_fav_recs = crud.get_favorite_photos_of_user_by_user_id(user.user_id)
+    for fav_rec in test_fav_recs:
+        if str(fav_rec.photo_id) == photo_id:
+            flash(" THIS IS ALREADY YOUR FAVORITE PHOTO ")
+            return redirect(url_str)
+    fav_rec=crud.create_favorite_photo(user, photo)
+    # print("FAVORITE PHOTO CREATED")
+
+    # print("PHOTO ID IS :", photo_id)    
+    # print("Favorite PHoto id is ",fav_rec.photo_id)
     return redirect(url_str)
 
     
