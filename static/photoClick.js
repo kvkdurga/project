@@ -44,14 +44,17 @@ function processUserData(userData) {
 
     }
     console.log("I am here")
-    //$('#users_details_div').append('<h1>user details will come here</h1>')
+    
 
 }
 $(document).ready(loadUserData);
 
-// $('#users_who_have_rated_photo').on('click', function (evt) {
-//     $('#count_who_rated_photo').load('/countOfUsersWhoRatedPhoto');
-    
-// });
+
+
+
+
+
+
+
 
 

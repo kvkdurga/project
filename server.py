@@ -91,13 +91,19 @@ def create_rating():
     comments=request.form.get('comments')
     rating=request.form.get('rating')
     photo_id = session['photo_id']
+    url_str = '/all_photos/' + photo_id
     # print ("rating",rating)
     # print ("Comments",comments)
     user=crud.get_user_by_id(session['user_id'])
     photo=crud.get_photo_by_id(session['photo_id'])
+    # test_rating_recs = crud.get_all_photos_rated_by_user(user.user_id)
+    # for rate_rec in test_rating_recs:
+    #     if (rate_rec.photo_id) == photo_id:
+    #         flash("THIS PHOTO WAS ALREADY RATED BY YOU ")
+    #         return redirect(url_str)
     rating_rec=crud.create_rating(rating,comments,photo,user)
     # print(rating_rec.user.fname)
-    url_str = '/all_photos/' + photo_id
+    
     return redirect(url_str)
 
 #********************************* AJAX*******************
@@ -135,6 +141,7 @@ def countOfUsersWhoRatedPhoto():
 
 @app.route('/get_img_data')
 def get_img_data():
+    """ jsonify the photo data"""
 
     photo_id = session['photo_id']
     photo_rec = crud.get_photo_by_id(photo_id)
@@ -153,8 +160,17 @@ def get_img_data():
     }
     return jsonify(json_data)
 
+#*******************************Google Maps*****************************
 
-#*********************************************************
+@app.route('/get_my_maps')
+def get_my_maps():
+    """ get the google map for the photo"""
+
+    #photo_id = session['photo_id']
+
+    return render_template('/stats_on_maps.html')
+
+#***************************Login/Register******************************
 
 @app.route('/register_user', methods=['POST'])
 def register_user():
@@ -203,7 +219,7 @@ def login_user():
         return redirect('/')
 
 
-
+#*****************************Main******************************
 
 if __name__ == '__main__':
     connect_to_db(app)
