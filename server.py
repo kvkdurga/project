@@ -22,6 +22,10 @@ def homepage():
 def all_photos():
     """View all photos."""
 
+    if session['user_id'] == "":
+        flash(" You are not signed in.Please sign in")
+        return redirect('/')
+        
     photos = crud.get_photos()
     user = crud.get_user_by_id(session['user_id'])
 
@@ -218,6 +222,14 @@ def login_user():
         flash("you are login email is not registered")
         return redirect('/')
 
+
+@app.route('/logout_user', methods=['POST'])
+def logout_user():
+    """ user logout"""
+    session['user_id'] = ""
+    session['photo_id'] = ""
+
+    return redirect('/')
 
 #*****************************Main******************************
 

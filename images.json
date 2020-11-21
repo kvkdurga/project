@@ -3,14 +3,14 @@
         "img_path": "./data/images/img1.jpg",
         "description":"Halebidu is a small town located in Hassan District in Karnataka state. It is a hindu temple for god Shiva. It's famous for its architecture with intricate detials.",
         "location": "Halebidu,Karnataka, India",
-        "gps_url": "https://en.wikipedia.org/wiki/Halebidu",
+        "gps_url": "13.2130,75.9942",
         "popular_url": "https://en.wikipedia.org/wiki/Halebidu"
     }, 
     {
         "img_path":"./data/images/img2.jpg",
         "description":"View of mountains from black sand beach on Hana Hwy in Maui, Hawaii.Black sand beaches are so beautiful with cyrstal clean waters and black pebbles on the beach.",
         "location": "Maui, Hawaii,USA",
-        "gps_url": "https://www.tourmaui.com/road-to-hana/",
+        "gps_url": "20.7865,-156.0027",
         "popular_url": "https://www.tourmaui.com/black-sand-beach/"
     },
     {

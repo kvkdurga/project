@@ -8,7 +8,14 @@
     <!-- <li><a href="./static/data/images/">View all of my photos</a></li> -->
     <li><a href="/user_details/{{session['user_id']}}">View my data</a></li>
   </ul>
-
+    
+  <form action= "/logout_user" method = "POST">
+    <p>
+    <input type="submit" value="Sign out">
+  </p>
+  </form>
+    
+  
   <ul>
     {% for photo in photos %}
       <li>
