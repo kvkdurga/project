@@ -11,17 +11,17 @@ function loadImgData() {
 function processImgData(imgData) {
     //console.log(imgData);
     var imgPath = "/static/"+ imgData.img_path
-    var gpsUrl = imgData.gps_url
+    //var gpsUrl = imgData.gps_url
     var popularUrl = imgData.popular_url
     //$('#test_div').append(imgPath)
     $('#img_details_div').append('<img id="img_id" src=""/>')
     $('#img_id').attr('src',imgPath)
-    
+    $('#break_div').append('<br>')
     $('#img_details_div').append(imgData.location)
 
-    $('#gps_url_div').append('<a id="gps_id" href="">"For more information, click here"</a>')
-    $('#gps_id').attr('href',gpsUrl)
-    $('#popular_url_div').append('<a id="popular_id" href="">"For further information, click here"</a>')
+    //$('#gps_url_div').append('<a id="gps_id" href="">"For more information, click here"</a>')
+    //$('#gps_id').attr('href',gpsUrl)
+    $('#popular_url_div').append('<a id="popular_id" href="" target="_blank"> For further information, click here </a>')
     $('#popular_id').attr('href', popularUrl)
 }
 

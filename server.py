@@ -23,7 +23,7 @@ def all_photos():
     """View all photos."""
 
     if session['user_id'] == "":
-        flash(" You are not signed in.Please sign in")
+        #flash(" You are not signed in.Please sign in")
         return redirect('/')
         
     photos = crud.get_photos()
@@ -34,7 +34,11 @@ def all_photos():
 @app.route('/all_photos/<photo_id>')
 def show_photo(photo_id):
     """display details of a specific photo."""
-    #flash(photo_id)
+
+    if session['user_id'] == "":
+        #flash(" You are not signed in.Please sign in")
+        return redirect('/')
+
     photo = crud.get_photo_by_id(photo_id)
     session['photo_id']=photo_id
 
@@ -43,6 +47,9 @@ def show_photo(photo_id):
 @app.route('/user_details/')
 def user_details():
     """display all details of a user"""
+    if session['user_id'] == "":
+        #flash(" You are not signed in.Please sign in")
+        return redirect('/')
 
     return render_template('user_details.html') 
 
@@ -50,23 +57,18 @@ def user_details():
 def view_user_details(user_id):
     """display all details of a user"""
 
+    if session['user_id'] == "":
+        #flash(" You are not signed in.Please sign in")
+        return redirect('/')
+
     user = crud.get_user_by_id(user_id)
-    #print(user.user_id)
-    
+        
     user_fav_photos = crud.get_favorite_photos_of_user_by_user_id(user_id)
 
     user_rated_recs = crud.get_all_rating_recs_by_user(user_id)
-    #print(user_fav_photos[2])
-
+    
     return render_template('display_user_details.html',user=user, user_fav_photos=user_fav_photos, user_rated_recs=user_rated_recs)
 
-
-# @app.route('/fav_photo')
-# def fav_photo(user_id):
-#     """display favorite photo of an user"""
-
-#     fav_photo = crud.get_favorite_photo_of_user_by_user_id(user_id)
-#     return render_template('fav_photo_of_user.html', fav_photo=fav_photo)
 
 @app.route('/create_fav_photo', methods=['POST'])
 def create_fav_photo():
@@ -75,7 +77,7 @@ def create_fav_photo():
     photo=crud.get_photo_by_id(session['photo_id'])
     photo_id = session['photo_id']
     url_str = '/all_photos/' + photo_id
-    # test_fav_rec = crud.get_fav_photo_rec_by_user_and_photo(user.user_id, photo.photo_id)
+    
     test_fav_recs = crud.get_favorite_photos_of_user_by_user_id(user.user_id)
     for fav_rec in test_fav_recs:
         if str(fav_rec.photo_id) == photo_id:
@@ -92,28 +94,32 @@ def create_fav_photo():
 
 @app.route('/create_rating', methods=['POST'])
 def create_rating():
-    comments=request.form.get('comments')
-    rating=request.form.get('rating')
+
+    
+    user=crud.get_user_by_id(session['user_id'])
+    photo=crud.get_photo_by_id(session['photo_id'])
     photo_id = session['photo_id']
     url_str = '/all_photos/' + photo_id
     # print ("rating",rating)
     # print ("Comments",comments)
-    user=crud.get_user_by_id(session['user_id'])
-    photo=crud.get_photo_by_id(session['photo_id'])
-    # test_rating_recs = crud.get_all_photos_rated_by_user(user.user_id)
-    # for rate_rec in test_rating_recs:
-    #     if (rate_rec.photo_id) == photo_id:
-    #         flash("THIS PHOTO WAS ALREADY RATED BY YOU ")
-    #         return redirect(url_str)
-    rating_rec=crud.create_rating(rating,comments,photo,user)
-    # print(rating_rec.user.fname)
     
+    test_rating_recs = crud.get_all_photos_rated_by_user(user.user_id)
+    for rate_rec in test_rating_recs:
+        if str(rate_rec.photo_id) == photo_id:
+            flash("THIS PHOTO WAS ALREADY RATED BY YOU ")
+            return redirect(url_str)
+        
+    comments=request.form.get('comments')
+    rating=request.form.get('rating')
+    rating_rec=crud.create_rating(rating,comments,photo,user)
+   
     return redirect(url_str)
 
 #********************************* AJAX*******************
 @app.route('/stats_on_photo', methods =['POST'])
 def stats_on_photo():
     """ Get all user for a favorite photo """
+
     photo_id = session['photo_id']
 
     return render_template('/stats_photo.html')

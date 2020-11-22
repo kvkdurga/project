@@ -1,13 +1,9 @@
 
 'use strict';
 
-
-
 var gpsUrl = ""
 
-
 $(document).ready(loadMapData);
-
 
 function loadMapData() {
     $.getJSON('/get_img_data',processMapData)
@@ -16,7 +12,6 @@ function loadMapData() {
 
 function processMapData(imgData) {
     
-    
     gpsUrl = imgData.gps_url
     var res=gpsUrl.split(",")
     if (res){
@@ -24,7 +19,6 @@ function processMapData(imgData) {
         var longitude=parseFloat(res[1])
 
     }
-    
     //console.log(res[0],res[1])
     var location = imgData.location
     var location_str = '<h2>' + location +'</h2>'
@@ -47,27 +41,21 @@ function processMapData(imgData) {
         }
     }
   
-
     initMap(coords,location_str)
 
     
     
 }
 
-
 function initMap(coords,location_str) {
-    
     
     var options = {
         zoom: 9,
         center:coords
         //center:{lat:13.2130,lng:75.9942}
     }
-    
     // New map
     var map = new google.maps.Map(document.getElementById('map'), options);
-
-    
 
     //Add marker to the map
     var marker = new google.maps.Marker({position:coords ,map:map});
