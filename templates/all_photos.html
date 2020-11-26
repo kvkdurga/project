@@ -2,12 +2,15 @@
 {% block title %}All Photos{% endblock %}
 
 {% block body %}
-  <h1> Hello {{user.fname}} {{user.lname}}, Here is my list of Photos</h1>
-  <h2>Navigation</h2>
-  <ul>
-    <!-- <li><a href="./static/data/images/">View all of my photos</a></li> -->
+<div class="container">
+ 
+  <h2> Welcome! {{user.fname}} {{user.lname}}, Here is my list of Photos</h2>
+  <br>
+  
+<!--   <ul>
+    
     <li><a href="/user_details/{{session['user_id']}}">View my data</a></li>
-  </ul>
+  </ul> -->
     
   <!-- <form action= "/logout_user" method = "POST">
     <p>
@@ -18,42 +21,47 @@
   
   <ul>
     {% for photo in photos %}
-      <li>
-        <a href="/all_photos/{{ photo.photo_id }}">
-          <!-- <img class="smallImage" src="/static/{{photo.img_path}}"> -->
-          <img class="mediumImage" src="/static/{{photo.img_path}}">
-          {{ photo.location }}
-        </a>
-        <!-- {{photo.img_path}} -->
+    <div class="row mb-3">
+      
+      <!--   <div class=" media" >
+          <img src="/static/{{photo.img_path}}" class="mr-3 mediumImage" alt="...">
+          <div class="media-body ">
+              <h5 class="mt-0"> {{ photo.location }} </h5>
+              <p class="">{{ photo.description }}</p>
+              <a href="/all_photos/{{ photo.photo_id }}" class="btn btn-primary">More Details</a>
+          </div>
+            
+        </div> -->
 
-        <!-- <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="{{photo.description}}">
-          Popover on right
-        </button> -->
-
-        
-        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel" {{photo.location}}></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body" {{photo.description}}>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="card mb-3" style="max-width: 1000 px;" >
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="/static/{{photo.img_path}}" class="card-img " alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ photo.location }}</h5>
+                <p class="card-text">{{ photo.description }}</p>
+                <a href="/all_photos/{{ photo.photo_id }}" class="btn btn-secondary">More Details</a>
               </div>
             </div>
           </div>
         </div>
-
-        <script src="/static/photoClick.js"></script> -->
+     
+    </div>
+ 
+     <!--  <li>
+        <a href="/all_photos/{{ photo.photo_id }}">
+         
+          <img class="mediumImage" src="/static/{{photo.img_path}}">
+          {{ photo.location }}
+        </a>
+       
 
         
-      </li>
+      </li> -->
     {% endfor %}
   </ul>
+
+</div>
 {% endblock %}

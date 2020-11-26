@@ -6,6 +6,13 @@
     height: 300px;
     width: 400px
 }
+
+.largeImage {
+
+    height: 400px;
+    width: 500px
+
+}
 .button {
     border: none;
     color: white;
@@ -14,4 +21,9 @@
     display: inline-block;
     font-size: 20;
     background-color: green
+}
+
+h1, h2, h3 {
+
+    color: rgb(107, 107, 204);
 }

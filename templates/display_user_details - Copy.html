@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %} Hello  {% endblock %}
+
+{% block body %}
+<h1>  Hello {{ user.fname }} {{user.lname}}</h1>
+<br>
+<h2>Navigation</h2>
+
+<ul>
+    <li><a href="/all_photos">View all of my photos</a></li>
+</ul>
+<br>
+<h2> Here are your favorite photos</h2>
+<ul>
+    {%for photo in user_fav_photos %}
+        <li>
+            <a href="/all_photos/{{ photo.photo_id }}">
+                <img class="smallImage" src="/static/{{photo.img_path}}">
+
+                <form>
+                    <!-- <p>For more details, click on these links</p> -->
+                    <br>
+                    <!-- <br>
+                    <a href="{{photo.gps_url}}" target="_blank">{{photo.location}} - Popular link</a>
+                    <br> -->
+                    <br>
+                    <a href="{{photo.popular_url}}" target="_blank">{{photo.location}} - Popular link</a>
+                    <br>
+                    <br>
+                </form>
+            </a>
+        </li>
+    {% endfor %}
+    
+</ul>
+
+<h2> Here are your rating details for photos</h2>
+<ul>
+    {%for rating_rec in user_rated_recs %}
+        <li>
+            <a href="/all_photos/{{ rating_rec.photo_id }}">
+                <img class="smallImage" src="/static/{{rating_rec.photo.img_path}}">
+            </a>
+            <p>comment: {{rating_rec.comments}}</p>
+            <p>rating: {{rating_rec.rating}}</p>
+
+        </li>
+    {% endfor %}
+    
+</ul>
+
+{% endblock %}

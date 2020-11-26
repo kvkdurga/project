@@ -1,0 +1,67 @@
+{% extends 'base1.html' %} -->
+{% block title %} Photo Viewing  Home {% endblock %} 
+
+{% block body %}
+<div class="jumbotron bg-primary text-center">
+  <h2>Welcome to Durga's Photos Viewing</h2>
+  <p>This is a photo assessment product</p>
+</div>
+ <div class="container">
+   <div class="row">
+     <div class="col">
+       
+        <form action="/login_user" method="POST">
+
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+          </div>
+          <p>
+            
+            Email <input type="text" name="email">
+          </p>
+
+          <p>
+            Password <input type="password" name="password">
+          </p>
+
+          <p>
+            <input type="submit" value="Sign in">
+          </p>
+        </form>
+      </div>
+      <div class="col">
+
+        <!-- <h2>If you do not have an account, Please Register. Thanks!</h2> -->
+        <form action="/register_user" method="POST">
+          <p>
+            First Name <input type="text" name="fname" required>
+          </p>
+          <p>
+            Last Name <input type="text" name="lname" required>
+          </p>
+          <p>
+            Email <input type="text" name="email"  required>
+          </p>
+
+          <p>
+            Password <input type="password" name="password" required>
+          </p>
+
+          <p>
+            <input type="submit" value="Register">
+          </p>
+        </form>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

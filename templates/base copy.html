@@ -13,43 +13,24 @@
     {% block head %}{% endblock %}
   </head>
   <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      
- 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/all_photos">All Photos <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user_details/{{session['user_id']}}">My Activity</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout_user">Sign Out</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-
-
-
     
-    <!-- <form action= "/logout_user" method = "POST">
+    <form action= "/logout_user" method = "POST">
       <p>
       <input type="submit" value="Sign out">
     </p>
-    </form> -->
+    </form>
 
-    {% for msg in get_flashed_messages() %}
-      <p class="flash-msg">
-        {{ msg }}
-      </p>
-    {% endfor %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <!-- <strong>Title</strong> --> {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
 
     {% block body %}{% endblock %}
 

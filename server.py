@@ -229,7 +229,7 @@ def login_user():
         return redirect('/')
 
 
-@app.route('/logout_user', methods=['POST'])
+@app.route('/logout_user', methods=['POST','GET'])
 def logout_user():
     """ user logout"""
     session['user_id'] = ""

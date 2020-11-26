@@ -2,46 +2,69 @@
 {% block title %} Photo Viewing  Home {% endblock %} 
 
 {% block body %}
-  <h1>Hello! Welcome to Durga's Photos Viewing</h1>
+<div class="jumbotron bg-primary text-center">
+  <h2>Welcome to ArtCritique </h2>
+  <p>Browse, rate and critique art</p>
+</div>
+ <div class="container">
+   <div class="row">
+     <div class="col">
+        <form action="/login_user" method="POST">
 
-  <!-- <h2>Navigation</h2>
-  <ul>
-    <li><a href="./static/data/images/">View all of my photos</a></li>
-    <li><a href="/my_data">View my data</a></li>
-  </ul> -->
-  <!-- <h2> If you have an account with me, Please sign in</h2> -->
-  <form action="/login_user" method="POST">
-    <p>
-      Email <input type="text" name="email">
-    </p>
+          <div class="form-group row">
+            <label for="inpEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-9">
+            <input  type="email" id="inpEmail" class="form-control" name="email">
+          </div>
+          </div>
 
-    <p>
-      Password <input type="password" name="password">
-    </p>
+          <div class="form-group row">
+            <label for="inpPassword" class="col-sm-2 col-form-label">  Password </label>
+            <div class="col-sm-9">
+              <input type="password" id="inpPassword" class="form-control" name="password">
+            </div>
+          </div>
 
-    <p>
-      <input type="submit" value="Sign in">
-    </p> </form>
+          <div class="col-sm-12 text-center">
+            <input type="submit" value="Sign in">
+          </div>
+        </form>
+      </div>
 
+      <div class="col">
+        <form action="/register_user" method="POST">
+          <div class="form-group row">
+            <label for="inpFname" class="col-sm-2 col-form-label">FirstName </label>
+            <div class="col-sm-9">
+             <input type="text" id="inpFname"  class="form-control" name="fname" required>
+            </div>
+         </div>
+         <div class="form-group row">
+          <label for="inpLname" class="col-sm-2 col-form-label">LastName </label>
+          <div class="col-sm-9">
+             <input type="text" id="inpLname" class="form-control"  name="lname" required>
+            </div>
+         </div>
+          
+         <div class="form-group row">
+          <label for="inpEmailReg" class="col-sm-2 col-form-label">Email </label>
+          <div class="col-sm-9">
+             <input type="text" name="email" id="inpEmailReg" class="form-control"   required>
+          </div>
+        </div>
+          
+        <div class="form-group row">
+          <label for="inpPasswordReg" class="col-sm-2 col-form-label">Password </label>
+          <div class="col-sm-9">
+            <input type="password" id="inpPasswordReg" class="form-control" name="password" required>
+          </div>
+          </div>
+          <div class="col-sm-12 text-center">
+            <input type="submit" value="Register">
+          </div> 
+        </form>
+      </div>
+    </div>
 
-  <h2>If you do not have an account, Please Register. Thanks!</h2>
-  <form action="/register_user" method="POST">
-    <p>
-      First Name <input type="text" name="fname" required>
-    </p>
-    <p>
-      Last Name <input type="text" name="lname" required>
-    </p>
-    <p>
-      Email <input type="text" name="email"  required>
-    </p>
-
-    <p>
-      Password <input type="password" name="password" required>
-    </p>
-
-    <p>
-      <input type="submit" value="Register">
-    </p>
-  </form>
+  </div>
 {% endblock %}

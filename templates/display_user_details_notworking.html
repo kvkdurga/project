@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %} Hello  {% endblock %}
+{% block title %} Hello {% endblock %}
 
 {% block body %}
+
 <div class = "container">
-    <h2 class="text-center">  Hello! {{ user.fname }} {{user.lname}}</h2>
+    <h1>  Hello! {{ user.fname }} {{user.lname}}</h1>
 <br>
 <!-- <h2>Navigation</h2>
 
@@ -12,11 +13,11 @@
     <li><a href="/all_photos">View all of my photos</a></li>
 </ul> -->
 <br>
-    <h3> Your Favorite Photos</h3>
-
-    {%for photo in user_fav_photos %}
-
+    <h2> Your Favorite Photos</h2>
+<ul>
+    {% for photo in user_fav_photos %}
     <div class="row mb-3">
+
         <div class="card mb-3" style="max-width: 500px;" >
             <div class="row no-gutters">
               <div class="col-md-4">
@@ -35,10 +36,14 @@
           </div>
         <!-- <li>
             <a href="/all_photos/{{ photo.photo_id }}">
-                <img class="smallImage" src="/static/{{photo.img_path}}">
+                <img class="mediumImage" src="/static/{{photo.img_path}}">
 
                 <form>
-                    
+                    <p>For more details, click on these links</p> 
+                    <br>
+                     <br>
+                    <a href="{{photo.gps_url}}" target="_blank">{{photo.location}} - Popular link</a>
+                    <br> 
                     <br>
                     <a href="{{photo.popular_url}}" target="_blank">{{photo.location}} - Popular link</a>
                     <br>
@@ -46,37 +51,45 @@
                 </form>
             </a>
         </li> -->
-
     </div>
     {% endfor %}
     
+</ul>
 
-
-
-<h3> Your Critiques </h3>
-
-    {%for rating_rec in user_rated_recs %}
+<h2> Your Rating details for photos</h2>
+<ul>
+    {% for rating_rec in user_rated_recs %}
 
     <div class="row mb-3">
-        <div class="card mb-3" style="max-width: 500px;" >
+
+        <!-- <div class="card mb-3" style="max-width: 500px;" >
             <div class="row no-gutters">
               <div class="col-md-4">
-                
-                    <img src="/static/{{rating_rec.photo.img_path}}" class="card-img" alt="...">
+                <img src="/static/{{rating_rec.photo.img_path}}" class="card-img" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">{{ rating_rec.photo.location }}</h5>
-                    <p class="card-text">Comment:{{rating_rec.comments}}</p>
-                    <p class="card-text">Rating:{{rating_rec.rating}}</p>
+                     <h5 class="card-title">{{ rating_rec.photo.location }}</h5> -->
+                    <!-- <p>Comments: {{rating_rec.comments}}</p>
+                    <p>Rating: {{rating_rec.rating}}</p> -->
+                    <!-- <p class="card-text">{{ photo.description }}</p>  -->
+                    <!-- <a href="{{photo.popular_url}}" target="_blank">{{photo.location}}</a> -->
+                    <!-- <a href="/all_photos/{{ rating_rec.photo_id }}" class="btn btn-secondary">More Details</a>
                 </div>
               </div>
             </div>
-          </div>
+          </div> --> 
+        <li>
+            <a href="/all_photos/{{ rating_rec.photo_id }}">
+                <img class="mediumImage" src="/static/{{rating_rec.photo.img_path}}">
+            </a>
+            <p>comment: {{rating_rec.comments}}</p>
+            <p>rating: {{rating_rec.rating}}</p>
 
+        </li>
     </div>
     {% endfor %}
     
-
+</ul>
 </div>
 {% endblock %}
