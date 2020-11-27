@@ -7,19 +7,19 @@
   <h2> Welcome! {{user.fname}} {{user.lname}}, Here is my list of Photos</h2>
   <br>
   
-<!--   <ul>
-    
-    <li><a href="/user_details/{{session['user_id']}}">View my data</a></li>
-  </ul> -->
-    
-  <!-- <form action= "/logout_user" method = "POST">
-    <p>
-    <input type="submit" value="Sign out">
-  </p>
-  </form> -->
+    <!--   <ul>
+        
+        <li><a href="/user_details/{{session['user_id']}}">View my data</a></li>
+      </ul> -->
+        
+      <!-- <form action= "/logout_user" method = "POST">
+        <p>
+        <input type="submit" value="Sign out">
+      </p>
+      </form> -->
     
   
-  <ul>
+  
     {% for photo in photos %}
     <div class="row mb-3">
       
@@ -61,7 +61,7 @@
         
       </li> -->
     {% endfor %}
-  </ul>
+  
 
 </div>
 {% endblock %}

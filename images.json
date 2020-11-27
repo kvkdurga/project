@@ -2,14 +2,14 @@
     { 
         "img_path": "./data/images/img1.jpg",
         "description":"Halebidu is a small town located in Hassan District in Karnataka state. It is a hindu temple for god Shiva. It's famous for its architecture with intricate detials.",
-        "location": "Halebidu,Karnataka, India",
+        "location": "Halebidu, Karnataka, India",
         "gps_url": "13.2130,75.9942",
         "popular_url": "https://en.wikipedia.org/wiki/Halebidu"
     }, 
     {
         "img_path":"./data/images/img2.jpg",
         "description":"View of mountains from black sand beach on Hana Hwy in Maui, Hawaii.Black sand beaches are so beautiful with cyrstal clean waters and black pebbles on the beach.",
-        "location": "Maui, Hawaii,USA",
+        "location": "Maui, Hawaii, USA",
         "gps_url": "20.7541,-155.9871",
         "popular_url": "https://www.tourmaui.com/black-sand-beach/"
     },
@@ -31,7 +31,7 @@
     {
         "img_path": "./data/images/img5.jpg",
         "description": "A beautiful fall in Afton state park in 2018. The trial is alonside of scenic St.Croix River. ",
-        "location": "Hastings, MN,USA",
+        "location": "Hastings, MN, USA",
         "gps_url": "44.9072,-92.8190",
         "popular_url": "https://en.wikipedia.org/wiki/Afton_State_Park"
     },
@@ -75,7 +75,7 @@
     },
     {
         "img_path": "./data/images/img13.jpg",
-        "description": "Rajasthan is known for its beautiful forts.Jaigarh Fort is one of them located in Jaipur city and it is called the victory fort",
+        "description": "Rajasthan is known for its beautiful forts. Jaigarh Fort is one of them located in Jaipur city and it is called the victory fort.",
         "location": "Jaipur, Rajasthan, India",
         "gps_url" : "26.9851,75.8456",
         "popular_url": "https://en.wikipedia.org/wiki/Jaigarh_Fort"
@@ -84,7 +84,7 @@
     {
         "img_path": "./data/images/img27.jpg",
         "description": "Craters in Haleakala National Park.It's known for dormant Haleakala volcano.",
-        "location": "Maui, Hawaii,USA",
+        "location": "Maui, Hawaii, USA",
         "gps_url": "20.7681,-156.2446",
         "popular_url" : "https://en.wikipedia.org/wiki/Haleakal%C4%81_National_Park"
 

@@ -9,8 +9,8 @@
 
 .largeImage {
 
-    height: 400px;
-    width: 500px
+    height: 500px;
+    width: 700px
 
 }
 .button {
@@ -20,10 +20,14 @@
     text-align: center;
     display: inline-block;
     font-size: 20;
-    background-color: green
+    background-color: rgb(107, 107, 204);
 }
 
-h1, h2, h3 {
+h2, h3 {
 
     color: rgb(107, 107, 204);
+}
+
+h1 {
+    color: Black
 }

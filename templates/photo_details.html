@@ -3,43 +3,55 @@
 {% block title %}{{ photo.location }} - Details{% endblock %}
 
 {% block body %}
+<div class = "container">
+  <br>
+  
+  <h2 class ="text-center"> {{ photo.location }} </h2>
+  
+  <br>
 
-<h1>{{ photo.location }}</h1>
-
-<h2>Navigation</h2>
+<!-- <h2>Navigation</h2>
   <ul>
     <li><a href="/all_photos">View all of my photos</a></li>
     
     
-  </ul>
-<p>
-  {{ photo.description }}
-</p>
-
-<img src="/static/{{ photo.img_path }}">
-
-<form action="/create_rating" method="POST">
-  <div>
-    <br>
-      <label for="rating">Please rate this picture:</label>
-        <select name= "rating">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+  </ul> -->
+  <div class ="row">
+    {{ photo.description }}
   </div>
-  <div>
-    <br>
-    <label for="comments">Please comment on this picture:</label>
-    <input type="text" name="comments" size="50">
+ <br>
+<div class="row align-items-center">
+  <div class="col-6 mx-auto"></div>
+    <img class = "largeImage" src="/static/{{ photo.img_path }}">
   </div>
-  <p>
-    <input type="submit" value="submit">
-  </p> 
+</div>
+<div class="row mb-3">
+  <div class= col-md-4> 
+    <form action="/create_rating" method="POST">
+      <div>
+        <br>
+          <label for="rating">Please rate this picture:</label>
+            <select name= "rating">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+      </div>
+
+      <div>
+        <br>
+        <label for="comments">Please comment on this picture:</label>
+        <input type="text" name="comments" size="50">
+      </div>
+      <p>
+        <input type="submit" value="submit">
+      </p> 
   
-</form>
+    </form>
+  </div>
+</div>
 <br>
 <form action ="/create_fav_photo" method = "POST">
   <div>
@@ -63,5 +75,5 @@
   <a href="{{photo.popular_url}}" target="_blank">{{photo.location}} - Popular link</a>
 </form>
 
-
+</div>
 {% endblock %}
