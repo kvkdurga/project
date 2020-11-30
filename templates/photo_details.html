@@ -3,77 +3,104 @@
 {% block title %}{{ photo.location }} - Details{% endblock %}
 
 {% block body %}
-<div class = "container">
-  <br>
-  
-  <h2 class ="text-center"> {{ photo.location }} </h2>
-  
-  <br>
+<div class="container">
 
-<!-- <h2>Navigation</h2>
-  <ul>
-    <li><a href="/all_photos">View all of my photos</a></li>
-    
-    
-  </ul> -->
-  <div class ="row">
+  <div >
+    <h2 class ="text-center"> {{ photo.location }} </h2>
+  </div> <!-- photo location row end-->
+
+
+  <div class="row">
     {{ photo.description }}
-  </div>
- <br>
-<div class="row align-items-center">
-  <div class="col-6 mx-auto"></div>
-    <img class = "largeImage" src="/static/{{ photo.img_path }}">
-  </div>
-</div>
-<div class="row mb-3">
-  <div class= col-md-4> 
-    <form action="/create_rating" method="POST">
-      <div>
-        <br>
-          <label for="rating">Please rate this picture:</label>
-            <select name= "rating">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-      </div>
+  </div>  <!-- photo description row end-->
 
-      <div>
-        <br>
-        <label for="comments">Please comment on this picture:</label>
-        <input type="text" name="comments" size="50">
-      </div>
-      <p>
-        <input type="submit" value="submit">
-      </p> 
-  
-    </form>
-  </div>
-</div>
-<br>
-<form action ="/create_fav_photo" method = "POST">
-  <div>
-    <button class= "button">Favorite photo</button>
-  </div>
-</form>
-<br>
-<form action ="/stats_on_photo" method = "POST">
-  <div>
-    <button class ="button">Get Statastics of Photo</button>
-  </div>
-</form>
-<br>
-<br>
-<form>
-  <p>For more details, click on these links</p>
-  <br>
-  <!-- <a href="{{photo.gps_url}}" target="_blank">{{photo.location}} - Popular link</a>
-  <br> -->
-  <!-- <br> -->
-  <a href="{{photo.popular_url}}" target="_blank">{{photo.location}} - Popular link</a>
-</form>
+  <div class="row"> <!-- photo image and rating Row start-->
 
-</div>
+    <div class="col-mb-8 p-3"> <!-- photo image column starts here-->
+      <div class="card" style="max-width: 800 px;" >
+        <br>
+        <div class="col-md-6">
+          <img class = "largeImage" src="/static/{{ photo.img_path }}">
+        </div>
+      </div>
+    </div>  <!-- photo image column Ends here-->
+
+    <div class="col-mb-12 p-3"> <!-- Rate, comment card,favPhoto,stats column starts here-->
+      <div class="row p-2" > <!-- Row for Rate and Comment starts here-->
+        <div class="card" style="width: 20rem;">
+          <div class="col-md-12">
+            <div class="card-body">
+                                  <h5 class="card-title">Rate and Comment</h5>
+                                  <form action="/create_rating" method="POST">
+                                    <div>
+                                        <br>
+                                        <label for="rating">Please rate this picture:</label>
+                                        <select name= "rating">
+                                          <option>1</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <div>
+                                      <label for="comments">Please comment on this picture:</label>
+                                      <textarea type="text" id="comment" size="50" name="comments"> </textarea>
+                                    </div>
+                                    <div class="col-sm-12 text-center">
+                                      <input type="submit" value="submit">
+                                    </div>
+                                  </form>
+            </div>
+          </div> 
+        </div>
+
+
+      </div> <!-- Row for Rate and Comment ends here-->
+
+      <div class="row"> <!-- Row for fav_photo starts here-->
+        <div class="pr-3">
+          <form action ="/create_fav_photo" method = "POST">
+            <div>
+              <button class= "button">Click to make a Favorite</button>
+            </div>
+          </form>
+        </div>
+        
+      <div>
+        <form action ="/stats_on_photo" method = "POST">
+          <div>
+            <button class ="button">Get Statistics of Photo</button>
+          </div>
+        </form>
+      </div>
+        
+        
+
+    </div> <!-- Rate and comment card column ends here-->
+
+  </div>  <!-- photo image and rating Row end-->
+
+ 
+
+  <div class="row pr-12">
+    <!-- <div class="card" style="max-width: 1200 px;"> -->
+      <div class="card" style="width: 73rem;">
+      <div class="card-header text-center">
+        To get more details of the Location, Click on the following link
+      </div>
+    
+      <div class="card-body text-center">
+        <div class="blockquote mb-12">
+          <a href="{{photo.popular_url}}" target="_blank"> {{photo.location}} </a>
+        </div>
+      </div>
+      
+    </div>
+  </div> <!-- URL link for more details row End-->
+
+
+
+</div> <!-- Container Div End-->
 {% endblock %}

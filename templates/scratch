@@ -1,8 +1,3 @@
-{% extends 'base.html' %}
-
-{% block title %}{{ photo.location }} - Details{% endblock %}
-
-{% block body %}
 <div class = "container">
   <br>
   <h2 class ="text-center"> {{ photo.location }} </h2>
@@ -52,7 +47,7 @@
     </div>
   
 <br>
-
+  
 <div class="card bg-light mb-3" style="max-width: 18rem;">
   <div class="card-header">Click to make Favorite Photo</div>
   <div class="card-body">
@@ -99,4 +94,3 @@
 </form> -->
 
 </div>
-{% endblock %}

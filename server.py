@@ -38,10 +38,8 @@ def show_photo(photo_id):
     if session['user_id'] == "":
         #flash(" You are not signed in.Please sign in")
         return redirect('/')
-    int_photo_id=photo_id
-    print("***********photo_id************** ",photo_id, " ************** ")
-    print(" ***********int_photo_id************** ",int_photo_id," ************** ")
-    photo = crud.get_photo_by_id(int_photo_id)
+    
+    photo = crud.get_photo_by_id(photo_id)
     session['photo_id']=photo_id
 
     return render_template('photo_details.html',photo=photo) 
