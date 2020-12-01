@@ -14,7 +14,8 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navbar starts here   -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info font-weight-bold">
       
  
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,34 +26,25 @@
           <li class="nav-item active">
             <a class="nav-link" href="/all_photos">All Photos <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="/user_details/{{session['user_id']}}">My Activity</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="/logout_user">Sign Out</a>
           </li>
         </ul>
       </div>
     </nav>
 
-
-
-
-    
-    <!-- <form action= "/logout_user" method = "POST">
-      <p>
-      <input type="submit" value="Sign out">
-    </p>
-    </form> -->
-
+    <!-- Flash message display -->
     {% for msg in get_flashed_messages() %}
-      <p class="flash-msg">
+      <p class="flash-msg text-center">
         {{ msg }}
       </p>
     {% endfor %}
 
     {% block body %}{% endblock %}
-
+    
     {% block after_body %}{% endblock %}
 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

@@ -20,12 +20,28 @@
     text-align: center;
     display: inline-block;
     font-size: 20;
-    background-color: rgb(107, 107, 204);
+    background-color: rgb(10, 135, 207);
+}
+.flash-msg {
+    font-weight: bold;
+    color:#c00c0c;
+    font-size:25px
 }
 
-h2, h3 {
+h2, h3, h4 {
 
-    color: rgb(107, 107, 204);
+    color: rgb(58, 188, 211);
+}
+
+
+.textColor{
+    color: rgb(58, 188, 211);
+    font-size:25px
+}
+
+.myFont {
+    font-size: 20px;
+    color: rgb(9, 56, 65);
 }
 
 h1 {

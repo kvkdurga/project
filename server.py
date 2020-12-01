@@ -9,9 +9,6 @@ app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
-
-# Replace this with routes and view functions!
-
 @app.route('/',methods=['GET'])
 def homepage():
     """View homepage."""
@@ -23,7 +20,6 @@ def all_photos():
     """View all photos."""
 
     if session['user_id'] == "":
-        #flash(" You are not signed in.Please sign in")
         return redirect('/')
         
     photos = crud.get_photos()
@@ -36,7 +32,6 @@ def show_photo(photo_id):
     """display details of a specific photo."""
 
     if session['user_id'] == "":
-        #flash(" You are not signed in.Please sign in")
         return redirect('/')
     
     photo = crud.get_photo_by_id(photo_id)
@@ -47,8 +42,8 @@ def show_photo(photo_id):
 @app.route('/user_details/')
 def user_details():
     """display all details of a user"""
+
     if session['user_id'] == "":
-        #flash(" You are not signed in.Please sign in")
         return redirect('/')
 
     return render_template('user_details.html') 
@@ -58,7 +53,7 @@ def view_user_details(user_id):
     """display all details of a user"""
 
     if session['user_id'] == "":
-        #flash(" You are not signed in.Please sign in")
+        
         return redirect('/')
 
     user = crud.get_user_by_id(user_id)
@@ -84,10 +79,7 @@ def create_fav_photo():
             flash(" THIS IS ALREADY YOUR FAVORITE PHOTO ")
             return redirect(url_str)
     fav_rec=crud.create_favorite_photo(user, photo)
-    # print("FAVORITE PHOTO CREATED")
-
-    # print("PHOTO ID IS :", photo_id)    
-    # print("Favorite PHoto id is ",fav_rec.photo_id)
+       
     return redirect(url_str)
 
     
@@ -100,9 +92,7 @@ def create_rating():
     photo=crud.get_photo_by_id(session['photo_id'])
     photo_id = session['photo_id']
     url_str = '/all_photos/' + photo_id
-    # print ("rating",rating)
-    # print ("Comments",comments)
-    
+        
     test_rating_recs = crud.get_all_photos_rated_by_user(user.user_id)
     for rate_rec in test_rating_recs:
         if str(rate_rec.photo_id) == photo_id:
@@ -116,6 +106,7 @@ def create_rating():
     return redirect(url_str)
 
 #********************************* AJAX*******************
+
 @app.route('/stats_on_photo', methods =['POST'])
 def stats_on_photo():
     """ Get all user for a favorite photo """
@@ -133,8 +124,7 @@ def countOfUsersWhoRatedPhoto():
     user_recs= crud.get_all_users_who_rated_photo(photo_id)
     count = len(user_recs)
     user_recs_json = []
-    #user_recs_json.append(count)
-
+    
     if (len != 0):
         for user_rec in user_recs:
             fname = user_rec.fname
@@ -147,8 +137,9 @@ def countOfUsersWhoRatedPhoto():
             user_recs_json.append(user_rec_json)
 
     return jsonify(user_recs_json)
-    #return "<h1>hello world</h1>"
 
+#*******************************Google Maps*****************************
+     
 @app.route('/get_img_data')
 def get_img_data():
     """ jsonify the photo data"""
@@ -170,17 +161,7 @@ def get_img_data():
     }
     return jsonify(json_data)
 
-#*******************************Google Maps*****************************
-
-@app.route('/get_my_maps')
-def get_my_maps():
-    """ get the google map for the photo"""
-
-    #photo_id = session['photo_id']
-
-    return render_template('/stats_on_maps.html')
-
-#***************************Login/Register******************************
+#***************************Register*************************************
 
 @app.route('/register_user', methods=['POST'])
 def register_user():
@@ -199,10 +180,11 @@ def register_user():
         flash('Account created! Please log in.')
         return redirect('/')
  
+#***************************Login****************************************
 
 @app.route('/login_user', methods=['POST'])
 def login_user():
-    """Create a new user."""
+    """Login for an existing user."""
 
     email = request.form.get('email')
     print(email)
@@ -214,10 +196,7 @@ def login_user():
     if user:
         
         if (user.password == password):
-            flash('Welcome!')
             session['user_id']=user.user_id
-        #return render_template("all_photos.html")
-        #photos = crud.get_photos()
             return redirect('/all_photos')
         else:
             flash("Invalid password, please try again")
@@ -225,7 +204,7 @@ def login_user():
 
     else:  
 
-        flash("you are login email is not registered")
+        flash("you are login email is not registered, please register")
         return redirect('/')
 
 

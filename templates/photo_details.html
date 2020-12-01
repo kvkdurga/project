@@ -6,11 +6,11 @@
 <div class="container">
 
   <div >
-    <h2 class ="text-center"> {{ photo.location }} </h2>
+    <h2 class ="text-center mt-3 mb-3"> {{ photo.location }} </h2>
   </div> <!-- photo location row end-->
 
 
-  <div class="row">
+  <div class="row myFont">
     {{ photo.description }}
   </div>  <!-- photo description row end-->
 
@@ -30,7 +30,7 @@
         <div class="card" style="width: 20rem;">
           <div class="col-md-12">
             <div class="card-body">
-                                  <h5 class="card-title">Rate and Comment</h5>
+                                  <h5 class="card-title textColor">Rate and Comment</h5>
                                   <form action="/create_rating" method="POST">
                                     <div>
                                         <br>
@@ -63,7 +63,7 @@
         <div class="pr-3">
           <form action ="/create_fav_photo" method = "POST">
             <div>
-              <button class= "button">Click to make a Favorite</button>
+              <button class= "button bg-info">Click to make a Favorite</button>
             </div>
           </form>
         </div>
@@ -71,7 +71,7 @@
       <div>
         <form action ="/stats_on_photo" method = "POST">
           <div>
-            <button class ="button">Get Statistics of Photo</button>
+            <button class ="button bg-info">Get Statistics of Photo</button>
           </div>
         </form>
       </div>
@@ -87,7 +87,7 @@
   <div class="row pr-12">
     <!-- <div class="card" style="max-width: 1200 px;"> -->
       <div class="card" style="width: 73rem;">
-      <div class="card-header text-center">
+      <div class="card-header text-center bg-info myFont">
         To get more details of the Location, Click on the following link
       </div>
     

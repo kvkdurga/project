@@ -3,52 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <title>photoClick – JavaScript</title>
     <style>
       #map{
-          height: 400px;
-          width: 50%;
+          height: auto;
+          width: auto;
       }
   </style>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous">
-    </script>
-
-  <h2>Navigation</h2>
-    <ul>
-      <li><a href="/all_photos">View all of my photos</a></li>
-    </ul>
-
-</script>
-
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet"  href="/static/css/style.css">
+  
     <body>
-      <h1>The statistics on the photo</h1>
-      <div id='img_details_div'></div>
-      <!-- <br>
-      <div id='gps_url_div'></div>
-      <br> -->
-      <div id='break_div'></div>
-      <form>
-      <div id='popular_url_div'></div>
-      </form>
-            
-      <div id = 'count'> </div>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-info font-weight-bold">
       
-      <div id='users_details_div'></div>
+ 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/all_photos">All Photos <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/user_details/{{session['user_id']}}">My Activity</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/logout_user">Sign Out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="container">
+      
+      <div class="row mt-4 mb-3 justify-content-center">
+        <h2 class="text-center">The statistics on the photo</h2>
+      </div>  
+      <div class="row"> 
+        <div class="col">
+        <div id='img_details_div'></div>
+      </div>
+      
+      <div id="map" class="col"></div>
+      
+    
 
-      <div id="map"></div>
+      <div class="row pr-12"> 
+        <div class="col-auto">
+          <div class="row no-gutters"></div>
+            <div class="card" style="width: 71rem; border: none;">
+              <div class="text-center textColor" id='img_location_div' ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
 
-      <!-- <div id="test_div"></div> -->
-        
+     
+     
+      <div class="row mt-4 pr-12">
+        <div class="row no-gutters">
+          <div class="col-12">  
+            <div class="card" style="width: 71rem;">
+              <div class="card-header text-center bg-info">
+                <div id = 'count'> </div>
+                <div id='users_details_div' ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <div class="row mt-4 pr-12"> 
+        <div class="col-12">
+          <div class="row no-gutters">
+            <div class="text-center myFont" id='popular_url_div'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    
     <script src="/static/photoClick.js"></script>
     <script src="/static/mapsScript.js"></script>
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe01Xbvf5tSBwKnx0nJo7OdS1sLQN1el0&callback=initMap">
     </script>
-
+   
       
     </body>
 </html>

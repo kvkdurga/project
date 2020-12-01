@@ -4,78 +4,72 @@
 
 {% block body %}
 <div class = "container">
-    <h2 class="text-center">  Hello! {{ user.fname }} {{user.lname}}</h2>
+    <h2 class="text-center mt-4">  Hello! {{ user.fname }} {{user.lname}}</h2>
 <br>
-<!-- <h2>Navigation</h2>
 
-<ul>
-    <li><a href="/all_photos">View all of my photos</a></li>
-</ul> -->
 <br>
-    <h3> Your Favorite Photos</h3>
 
-    {%for photo in user_fav_photos %}
+    <div class="row">
+        <div class="col">
+            <h3> Your Favorite Photos</h3>
+            {%for photo in user_fav_photos %}
 
-    <div class="row mb-3">
-        <div class="card mb-3" style="max-width: 500px;" >
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                
-                    <img src="/static/{{photo.img_path}}" class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{ photo.location }}</h5>
-                    <p class="card-text">{{ photo.description }}</p> 
-                    <!-- <a href="/all_photos/{{ photo.photo_id }}" class="btn btn-secondary">More Details</a> -->
-                    <a href="{{photo.popular_url}}" target="_blank">{{photo.location}}</a>
-                </div>
-              </div>
+            <div class="row mb-3">
+                <div class="card mb-3" style="max-width: 500px;" >
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="/static/{{photo.img_path}}" class="card-img" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ photo.location }}</h5>
+                            <p class="card-text">{{ photo.description }}</p> 
+                            <a href="{{photo.popular_url}}" target="_blank">{{photo.location}}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        
             </div>
-          </div>
-        <!-- <li>
-            <a href="/all_photos/{{ photo.photo_id }}">
-                <img class="smallImage" src="/static/{{photo.img_path}}">
+            {% endfor %}
 
-                <form>
-                    
-                    <br>
-                    <a href="{{photo.popular_url}}" target="_blank">{{photo.location}} - Popular link</a>
-                    <br>
-                    <br>
-                </form>
-            </a>
-        </li> -->
+        </div>
+
+        <div class="col">
+                <h3> Your Critiques </h3>
+
+                {%for rating_rec in user_rated_recs %}
+
+                <div class="row mb-3">
+                    <div class="card mb-3" style="max-width: 500px;" >
+                        <div class="row no-gutters">
+                        <div class="col-md-4">
+                            
+                            <img src="/static/{{rating_rec.photo.img_path}}" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ rating_rec.photo.location }}</h5>
+                                <p class="card-text">Comment: {{rating_rec.comments}}</p>
+                                <p class="card-text">Rating: {{rating_rec.rating}}</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+                {% endfor %}
+            
+        </div>
+       
 
     </div>
-    {% endfor %}
+  
     
 
 
 
-<h3> Your Critiques </h3>
 
-    {%for rating_rec in user_rated_recs %}
-
-    <div class="row mb-3">
-        <div class="card mb-3" style="max-width: 500px;" >
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                
-                    <img src="/static/{{rating_rec.photo.img_path}}" class="card-img" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{ rating_rec.photo.location }}</h5>
-                    <p class="card-text">Comment: {{rating_rec.comments}}</p>
-                    <p class="card-text">Rating: {{rating_rec.rating}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-    </div>
-    {% endfor %}
     
 
 </div>
