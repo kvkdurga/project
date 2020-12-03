@@ -17,7 +17,7 @@
   <div class="row"> <!-- photo image and rating Row start-->
 
     <div class="col-mb-8 p-3"> <!-- photo image column starts here-->
-      <div class="card" style="max-width: 800 px;" >
+      <div class="card border-info" style="max-width: 800 px;" >
         <br>
         <div class="col-md-6">
           <img class = "largeImage" src="/static/{{ photo.img_path }}">
@@ -27,7 +27,7 @@
 
     <div class="col-mb-12 p-3"> <!-- Rate, comment card,favPhoto,stats column starts here-->
       <div class="row p-2" > <!-- Row for Rate and Comment starts here-->
-        <div class="card" style="width: 20rem;">
+        <div class="card border-info" style="width: 20rem;">
           <div class="col-md-12">
             <div class="card-body">
                                   <h5 class="card-title textColor">Rate and Comment</h5>
@@ -86,14 +86,14 @@
 
   <div class="row pr-12">
     <!-- <div class="card" style="max-width: 1200 px;"> -->
-      <div class="card" style="width: 73rem;">
+      <div class="card border-info" style="width: 73rem;">
       <div class="card-header text-center bg-info myFont">
         To get more details of the Location, Click on the following link
       </div>
     
       <div class="card-body text-center">
         <div class="blockquote mb-12">
-          <a href="{{photo.popular_url}}" target="_blank"> {{photo.location}} </a>
+        <a href="{{photo.popular_url}}" target="_blank"> {{photo.location}} </a>
         </div>
       </div>
       

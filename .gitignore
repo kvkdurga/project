@@ -1,3 +1,5 @@
 env/
 secrets.ssh
 *.pyc
+__pycache__
+
