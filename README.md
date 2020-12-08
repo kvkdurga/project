@@ -15,7 +15,7 @@ The main idea of this web application is for an artist who seek an evaluation on
 ## Database:
 Relational database where each user can rate/comment multiple photos, make multiple favorites while each photo can have many ratings/comments.
 
-![Data model](./static/model.png)
+![Data model](./static/model.png|width = 50 |height = 50)
 
 ## Features:
 * User Handling(User registration, Login, Logout) 
