@@ -1,8 +1,23 @@
-{% extends 'base1.html' %} -->
+{% extends 'base1.html' %} 
 {% block title %} Photo Viewing  Home {% endblock %} 
 
 {% block body %}
-<div class="jumbotron bg-info text-center">
+<style>
+  body {
+    background-image: url('/static/data/images/img29.jpg');
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+  /* table {
+    border: 2px black solid; */
+  p {
+    font-size: 20px;
+    color:black
+}
+</style> 
+
+<div class="jumbotron id= jumbo text-center">
   <h1>Welcome to ArtCritique </h1>
   <p>Browse, rate and critique art</p>
 </div>
@@ -12,7 +27,7 @@
         <form action="/login_user" method="POST">
 
           <div class="form-group row">
-            <label for="inpEmail" class="col-sm-2 col-form-label">Email</label>
+            <label for="inpEmail" class="col-sm-2 col-form-label ">Email</label>
             <div class="col-sm-9">
             <input  type="email" id="inpEmail" class="form-control" name="email">
           </div>

@@ -1,4 +1,5 @@
-"""Server for movie ratings app."""
+"""Server for image ratings/critiques app."""
+
 from flask import (Flask, render_template, request, flash, session,
                    redirect, jsonify, url_for)
 from model import connect_to_db

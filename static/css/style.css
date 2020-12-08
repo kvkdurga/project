@@ -62,3 +62,27 @@ textarea {
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px #999;
 }
+.jumbo {
+
+    /* background: #393f42; */
+    background: #45515f;
+
+}
+/* body {
+    background-image: url('/static/data/images/img29.jpg');
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+  table {
+    border: 2px black solid; 
+} */
+a:link,a:visited {
+    color:  rgb(58, 188, 211);
+}
+
+label {
+
+    font-weight: bold;
+    color: white
+}
