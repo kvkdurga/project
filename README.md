@@ -12,11 +12,10 @@ The main idea of this web application is for an artist who seek an evaluation on
 * BootStrap
 * CSS
 * Google Maps API
-
 ## Database:
 Relational database where each unique user can rate/comment multiple photos, make multiple favorites while each photo can have many ratings/comments.
 
-![model.py](/static/model.png)
+![Data model](./static/model.png)
 
 ## Features:
 * User Handling(User registration, Login, Logout) 
