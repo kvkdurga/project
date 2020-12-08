@@ -1,6 +1,6 @@
 # ArtCritique
 ## Overview:
-The main idea of this web application is for an artist who seek an evaluation on their artwork trhough ratings/comments. It also showcases the location details of an image.
+The main idea of this web application is for an artist who seek an evaluation on their artwork through ratings/comments. It also showcases the location details of an image.
 ## Techonologies:
 * Python
 * Flask
@@ -13,7 +13,7 @@ The main idea of this web application is for an artist who seek an evaluation on
 * CSS
 * Google Maps API
 ## Database:
-Relational database where each unique user can rate/comment multiple photos, make multiple favorites while each photo can have many ratings/comments.
+Relational database where each user can rate/comment multiple photos, make multiple favorites while each photo can have many ratings/comments.
 
 ![Data model](./static/model.png)
 
